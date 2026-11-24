@@ -1,0 +1,13 @@
+# Wellcom — création de sites internet et communication
+
+> Wellcom (WELLCOM SASU, Antibes) crée les sites internet et gère la communication (réseaux sociaux, LinkedIn) des entreprises et associations qui se lancent, sur la Côte d'Azur. Les prospects décrivent leur projet dans un formulaire et reçoivent une maquette de leur page d'accueil, gratuite et sans engagement, avec un devis.
+
+- Dirigeante : Mélanie Dalmasso
+- Zone : Antibes et Côte d'Azur
+- Contact : contact@wellcomservices.fr · 06 01 76 17 53
+
+## Pages
+
+- [Accueil et demande de maquette](https://wellcomservices.github.io/siteweb/) : présentation de l'offre, réalisation (site d'Arkéo BTP), formulaire de demande
+- [Mentions légales](https://wellcomservices.github.io/siteweb/mentions-legales.html)
+- [Politique de confidentialité](https://wellcomservices.github.io/siteweb/confidentialite.html)

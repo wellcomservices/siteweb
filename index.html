@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Créons votre site — Wellcom</title>
+<meta name="description" content="Wellcom crée les sites internet et gère la communication des entreprises et associations qui se lancent, à Antibes et sur la Côte d'Azur. Maquette gratuite et sans engagement.">
+<link rel="canonical" href="https://wellcomservices.github.io/siteweb/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://wellcomservices.github.io/siteweb/">
+<meta property="og:image" content="https://wellcomservices.github.io/siteweb/arkeo.jpg">
+<link rel="icon" type="image/png" href="w.png">
+<meta property="og:title" content="Créons votre site — Wellcom">
+<meta property="og:description" content="Sites internet et communication pour les entreprises et associations qui se lancent, sur la Côte d'Azur. Recevez votre maquette gratuite.">
+<meta property="og:locale" content="fr_FR">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Wellcom","url":"https://wellcomservices.github.io/siteweb/","legalName":"WELLCOM","description":"Création de sites internet et gestion de la communication (réseaux sociaux, LinkedIn) pour les entreprises et associations qui se lancent.","email":"contact@wellcomservices.fr","telephone":"+33601761753","address":{"@type":"PostalAddress","streetAddress":"82 avenue des Martyrs de la Résistance, Bât B2","postalCode":"06600","addressLocality":"Antibes","addressCountry":"FR"},"areaServed":"Côte d'Azur","vatID":"FR15943478164","taxID":"94347816400016","founder":{"@type":"Person","name":"Mélanie Dalmasso"}}</script>
+<style>
+/* VOICE: pétillant, rassurant, concret — on parle à quelqu'un qui vient de voir un site qui lui plaît
+   IDEA: la vitrine d'un atelier, avec la dernière réalisation exposée en grand
+   PICTURE: ordinateur + téléphone affichant le vrai site d'Arkéo, ruban W derrière, flèche manuscrite
+   COLOUR and TYPE: charte Wellcom — marine #09065e, violet #4f0a80, corail #f27a58 ; Comfortaa, Open Sans, manuscrite
+   LAYOUT: barre blanche, bandeau dégradé texte + écrans, 3 étapes, formulaire en colonne */
+@font-face{font-family:"Open Sans";src:url(fonts/open-sans-latin-400-normal.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Open Sans";src:url(fonts/open-sans-latin-600-normal.woff2) format("woff2");font-weight:500 700;font-display:swap}
+@font-face{font-family:Comfortaa;src:url(fonts/comfortaa-latin-700-normal.woff2) format("woff2");font-weight:500 700;font-display:swap}
+@font-face{font-family:Caveat;src:url(fonts/caveat-latin-600-normal.woff2) format("woff2");font-weight:500 700;font-display:swap}
+:root{color-scheme:light dark;--navy:#09065e;--vio:#4f0a80;--cor:#f27a58;--cor-ink:#3a1405;
+--bg:light-dark(#f7f4fc,#0e0a26);--card:light-dark(#fff,#1a1238);--ink:light-dark(#09065e,#f1ecff);
+--muted:light-dark(#5a5478,#b9b0d8);--line:light-dark(#e3dcf2,#342a5c);--vio2:light-dark(#4f0a80,#b48cff);
+--field:light-dark(#fbfaff,#140e30);--err:light-dark(#b42318,#ff8a80)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "Open Sans",system-ui,sans-serif;overflow-x:clip}
+.bar{position:sticky;top:0;z-index:20;background:light-dark(#fff,#140e30);border-bottom:1px solid var(--line);padding:12px max(5vw,16px);display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}.logo img{height:34px;width:auto}
+.logo b{font:700 24px Comfortaa,sans-serif;color:light-dark(#09065e,#fff);letter-spacing:-.5px}.logo b span{color:var(--cor)}
+.bar a.top-cta{font:700 15px Comfortaa,sans-serif;color:var(--cor-ink);background:var(--cor);padding:10px 16px;border-radius:999px;text-decoration:none;white-space:nowrap}
+.hero{background:linear-gradient(120deg,var(--navy),var(--vio));color:#fff;padding:clamp(36px,5vw,72px) max(5vw,16px) clamp(48px,6vw,88px);overflow:hidden}
+.hero .in{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:clamp(28px,4vw,64px);align-items:center}
+.from{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:8px 16px;font-size:14px;font-weight:600}
+.from i{width:9px;height:9px;border-radius:50%;background:var(--cor);flex:none}
+h1{font:700 clamp(34px,4.8vw,54px)/1.08 Comfortaa,sans-serif;margin:18px 0 16px;text-wrap:balance;letter-spacing:-.5px}
+h1 em{font-style:normal;color:var(--cor)}
+.lead{font-size:18px;color:#e2dbff;margin:0 0 28px;max-width:50ch}
+.cta{display:inline-flex;align-items:center;gap:10px;font:700 17px Comfortaa,sans-serif;background:var(--cor);color:var(--cor-ink);border:0;border-radius:999px;min-height:56px;padding:0 28px;cursor:pointer;text-decoration:none;box-shadow:0 10px 30px rgba(242,122,88,.35);transition:transform .2s}
+.cta:hover{transform:translateY(-2px)}
+.ctas{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px}
+.cta2{color:#fff;font-weight:600;text-decoration:underline;text-underline-offset:4px;min-height:44px;display:inline-flex;align-items:center}
+.cta{animation:glow 2.8s ease-in-out infinite}@keyframes glow{50%{box-shadow:0 10px 40px rgba(242,122,88,.6)}}
+.float-cta{display:none}
+@media(max-width:900px){.float-cta{display:flex;position:fixed;z-index:30;left:16px;right:16px;bottom:max(16px,env(safe-area-inset-bottom));justify-content:center;align-items:center;gap:8px;min-height:54px;border-radius:999px;background:var(--cor);color:var(--cor-ink);font:700 16px Comfortaa,sans-serif;text-decoration:none;box-shadow:0 10px 30px rgba(9,6,94,.35);transition:transform .3s,opacity .3s}
+.float-cta.off{transform:translateY(120%);opacity:0;pointer-events:none}footer{padding-bottom:100px}}
+.reassure{display:flex;flex-wrap:wrap;gap:8px 20px;margin:20px 0 0;padding:0;list-style:none;font-size:15px;color:#e2dbff}
+.reassure li::before{content:"✓";color:var(--cor);font-weight:700;margin-right:8px}
+.stage{position:relative;padding:12% 8% 14% 6%}
+.ribbon{position:absolute;z-index:3;width:40%;left:-4%;bottom:-2%;pointer-events:none;filter:drop-shadow(0 24px 30px rgba(4,1,40,.55));animation:float 6s ease-in-out infinite}
+@keyframes float{0%,100%{transform:rotate(-8deg)}50%{transform:translateY(-12px) rotate(-5deg)}}
+.laptop{position:relative;z-index:1}
+.screen{background:#111;border-radius:14px 14px 4px 4px;padding:10px;border:1px solid rgba(255,255,255,.15);box-shadow:0 40px 80px rgba(4,1,40,.55)}
+.screen img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;object-position:left top;border-radius:4px}
+.base{height:16px;margin:0 -6%;background:linear-gradient(#d9d4e6,#a9a2bd);border-radius:0 0 16px 16px;position:relative}
+.base::after{content:"";position:absolute;left:42%;right:42%;top:0;height:6px;background:#8c86a3;border-radius:0 0 8px 8px}
+.phone{position:absolute;z-index:2;right:0;bottom:0;width:27%;background:#111;border-radius:22px;padding:6px;border:1px solid rgba(255,255,255,.2);box-shadow:0 30px 60px rgba(4,1,40,.6)}
+.phone img{display:block;width:100%;aspect-ratio:9/17;object-fit:cover;object-position:top;border-radius:17px}
+.note{position:absolute;z-index:3;left:14%;top:0;display:flex;flex-direction:row-reverse;align-items:flex-start;gap:4px;transform:rotate(-4deg)}
+.note span{font:600 clamp(24px,2.6vw,32px)/1 Caveat,cursive;color:var(--cor);white-space:nowrap}
+.note svg{width:64px;height:48px;flex:none}
+.how{list-style:none;margin:0 0 16px;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.how li{display:flex;gap:10px;align-items:center;font-size:14px;color:var(--muted);line-height:1.35}
+.how b{font:700 18px Comfortaa,sans-serif;color:var(--cor-ink);background:var(--cor);width:34px;height:34px;border-radius:50%;display:grid;place-items:center;flex:none}
+.how strong{color:var(--ink)}
+#suite{max-width:760px;margin:0 auto;padding:clamp(20px,3vw,36px) max(3vw,12px) 48px;scroll-margin-top:12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:clamp(20px,4vw,36px)}
+.prog{display:flex;gap:6px;margin-bottom:8px}.prog i{flex:1;height:6px;border-radius:3px;background:var(--line);transition:background .3s}.prog i.on{background:var(--cor)}
+.stepl{font-size:13px;color:var(--muted);margin:0 0 18px}
+h2{font:700 24px/1.2 Comfortaa,sans-serif;margin:0 0 6px;color:var(--vio2)}
+.hint{color:var(--muted);margin:0 0 22px;font-size:15px}
+.f{margin-bottom:20px}.t{display:block;font-weight:600;margin-bottom:8px}.t small{font-weight:400;color:var(--muted)}
+.f input[type=text],.f input[type=email],.f input[type=tel],.f input[type=url],textarea{width:100%;font:16px "Open Sans",sans-serif;color:var(--ink);background:var(--field);border:1px solid var(--line);border-radius:10px;padding:11px 13px;min-height:46px}
+textarea{min-height:110px;resize:vertical}
+:focus-visible{outline:3px solid var(--cor);outline-offset:2px}
+.opts{display:flex;flex-wrap:wrap;gap:8px}.opts.col{flex-direction:column;align-items:flex-start}
+.opt{position:relative}.opt input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.opt span{display:inline-flex;align-items:center;min-height:44px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;background:var(--field);font-size:15px;cursor:pointer}
+.opt input:checked+span{background:var(--vio2);border-color:var(--vio2);color:light-dark(#fff,#0e0a26)}
+.opt input:focus-visible+span{outline:3px solid var(--cor);outline-offset:2px}
+.styles{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.sty{position:relative;cursor:pointer}.sty input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.sty>div{border:2px solid var(--line);border-radius:14px;overflow:hidden;background:var(--field);height:100%;transition:transform .2s}
+.sty:hover>div{transform:translateY(-2px)}
+.sty input:checked+div{border-color:var(--cor);box-shadow:0 0 0 3px rgba(242,122,88,.3)}
+.sty input:focus-visible+div{outline:3px solid var(--cor);outline-offset:2px}
+.sty svg{display:block;width:100%;height:auto}.sty p{margin:0;padding:8px 10px;font-size:14px;font-weight:600}
+.dots{display:flex;flex-wrap:wrap;gap:10px}
+.dot{width:40px;height:40px;min-height:40px;border-radius:50%;border:3px solid var(--line);cursor:pointer;padding:0}
+.dot[aria-pressed=true]{border-color:var(--ink)}
+.soc{display:grid;grid-template-columns:110px minmax(0,1fr);gap:8px 12px;align-items:center}.soc span{font-size:15px;color:var(--muted)}
+.file{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.file label{display:inline-flex;align-items:center;min-height:44px;padding:8px 16px;border:1px dashed var(--vio2);border-radius:10px;cursor:pointer;color:var(--vio2);font-weight:600}
+.file input{position:absolute;width:1px;height:1px;opacity:0}.file span{font-size:14px;color:var(--muted)}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.legal{font-size:14px;color:var(--muted);margin:8px 0 0}.legal a{color:var(--vio2)}
+.chk{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--muted)}.chk input{width:20px;height:20px;margin-top:2px;accent-color:var(--vio2);flex:none}
+.err{color:var(--err);font-size:14px;margin:6px 0 0;display:none}.err.on{display:block}
+.nav{display:flex;justify-content:space-between;gap:12px;margin-top:28px;flex-wrap:wrap}
+button{font:600 16px "Open Sans",sans-serif;min-height:48px;padding:0 22px;border-radius:10px;cursor:pointer;border:1px solid var(--line);background:transparent;color:var(--ink)}
+button.go{background:var(--cor);border-color:var(--cor);color:var(--cor-ink);margin-left:auto}
+.step{display:none}.step.on{display:block;animation:in .3s ease}
+@keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.hand{font:600 26px Caveat,cursive;display:inline-block;transform:rotate(-2deg)}
+.done{text-align:center;padding:12px 0}
+.recap{text-align:left;margin-top:22px;border-top:1px solid var(--line);padding-top:16px;font-size:15px}.recap dt{color:var(--muted);font-size:13px;margin-top:10px}.recap dd{margin:0}
+footer{text-align:center;font-size:14px;color:var(--muted);padding:8px 16px 36px}
+footer a{color:var(--vio2)}.flinks{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 18px;margin:10px 0 6px}footer small{font-size:13px}
+footer b{font-family:Comfortaa,sans-serif;color:var(--ink)}footer b span{color:var(--cor)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media(max-width:900px){.hero .in{grid-template-columns:1fr}.how{grid-template-columns:1fr;gap:8px}.stage{max-width:620px}}
+@media(max-width:600px){.soc{grid-template-columns:1fr}.soc span{margin-top:6px}.nav button{flex:1}button.go{margin-left:0}.bar a.top-cta{font-size:13px;padding:8px 12px}.cta{width:100%;justify-content:center}.note{left:8%}.ribbon{left:0;width:36%}}
+</style>
+</head>
+<body>
+<div class="bar">
+  <a class="logo" href="#" aria-label="Wellcom"><img src="w.png" alt=""><b>Well<span>com</span></b></a>
+  <a class="top-cta" href="#suite">Ma maquette gratuite</a>
+</div>
+
+<section class="hero"><div class="in">
+  <div>
+    <span class="from" id="from"><i></i><span id="from-txt">Sites internet et communication · Côte d'Azur</span></span>
+    <h1 id="titre">Un site qui vous ressemble, <em>sans exploser votre budget</em></h1>
+    <p class="lead" id="lead">Pour les entreprises et associations qui se lancent : on crée votre site, on anime vos réseaux, et on vous montre le résultat avant même que vous vous engagiez.</p>
+    <div class="ctas"><a class="cta" href="#suite">Recevoir ma maquette gratuite <span aria-hidden="true">→</span></a><a class="cta2" href="tel:+33601761753">Ou appelez le 06 01 76 17 53</a></div>
+    <ul class="reassure"><li>Gratuit</li><li>Sans engagement</li><li>Basée sur la Côte d'Azur</li></ul>
+  </div>
+  <div class="stage" aria-label="Le site d'Arkéo BTP, créé par Wellcom, sur ordinateur et sur téléphone">
+    <img class="ribbon" src="w3d.png" alt="">
+    <div class="laptop"><div class="screen"><img src="arkeo.jpg" alt="Page d'accueil du site d'Arkéo BTP sur ordinateur"></div><div class="base"></div></div>
+    <div class="phone"><img src="arkeo-mobile.jpg" alt="Page d'accueil du site d'Arkéo BTP sur téléphone"></div>
+    <div class="note"><svg viewBox="0 0 64 48" aria-hidden="true"><path d="M4 8 C 20 4, 42 14, 54 38" fill="none" stroke="#f27a58" stroke-width="3" stroke-linecap="round"/><path d="M44 36 L55 40 L58 28" fill="none" stroke="#f27a58" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Celui-ci, c'est nous !</span></div>
+  </div>
+</div></section>
+
+
+
+
+
+<section id="suite">
+  <ol class="how" aria-label="Comment ça marche">
+    <li><b>1</b><span><strong>Vous décrivez</strong> votre projet en quelques questions</span></li>
+    <li><b>2</b><span><strong>On crée</strong> votre maquette et votre devis</span></li>
+    <li><b>3</b><span><strong>Vous décidez</strong>, sans aucun engagement</span></li>
+  </ol>
+<form class="card" id="form" novalidate>
+  <div class="prog" id="prog" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+  <p class="stepl" id="stepl">Étape 1 sur 5</p>
+
+  <section class="step on" data-s="1">
+    <h2>Votre projet</h2>
+    <p class="hint">Pour comprendre qui vous êtes et ce que votre site doit faire.</p>
+    <div class="f"><label class="t" for="nom">Nom de votre entreprise ou association</label>
+      <input type="text" id="nom" name="nom" autocomplete="organization" data-req><p class="err">Indiquez le nom de votre structure.</p></div>
+    <div class="f"><label class="t" for="activite">Votre activité, en une phrase</label>
+      <input type="text" id="activite" name="activite" data-req placeholder="Céramiste, je vends mes créations et je donne des cours à Antibes"><p class="err">Décrivez votre activité en quelques mots.</p></div>
+    <div class="f"><label class="t" for="public">À qui vous vous adressez</label>
+      <input type="text" id="public" name="public" placeholder="Particuliers, touristes, familles…"></div>
+    <div class="f"><span class="t">Ce que le site doit faire faire à vos visiteurs <small>(plusieurs choix possibles)</small></span>
+      <div class="opts">
+        <label class="opt"><input type="checkbox" name="objectif" value="Vous appeler ou vous écrire"><span>Vous appeler ou vous écrire</span></label>
+        <label class="opt"><input type="checkbox" name="objectif" value="Réserver"><span>Réserver</span></label>
+        <label class="opt"><input type="checkbox" name="objectif" value="Acheter en ligne"><span>Acheter en ligne</span></label>
+        <label class="opt"><input type="checkbox" name="objectif" value="Adhérer ou s'inscrire"><span>Adhérer ou s'inscrire</span></label>
+        <label class="opt"><input type="checkbox" name="objectif" value="Vous découvrir"><span>Vous découvrir</span></label>
+      </div></div>
+  </section>
+
+  <section class="step" data-s="2">
+    <h2>Votre présence actuelle</h2>
+    <p class="hint">Partagez ce qui existe déjà : on regarde tout pour que la maquette vous ressemble.</p>
+    <div class="f"><span class="t">Avez-vous déjà un site internet ?</span>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="asite" value="Oui"><span>Oui</span></label>
+        <label class="opt"><input type="radio" name="asite" value="Non"><span>Non, pas encore</span></label>
+      </div></div>
+    <div class="f" id="siteurl" hidden><label class="t" for="site-url">Lien de votre site actuel</label>
+      <input type="url" id="site-url" name="site" placeholder="https://www.monsite.fr"></div>
+    <div class="f"><span class="t">Vos réseaux sociaux <small>(laissez vide ceux que vous n'avez pas)</small></span>
+      <div class="soc">
+        <span>Instagram</span><input type="url" name="instagram" aria-label="Lien Instagram" placeholder="https://instagram.com/…">
+        <span>Facebook</span><input type="url" name="facebook" aria-label="Lien Facebook" placeholder="https://facebook.com/…">
+        <span>LinkedIn</span><input type="url" name="linkedin" aria-label="Lien LinkedIn" placeholder="https://linkedin.com/…">
+        <span>TikTok</span><input type="url" name="tiktok" aria-label="Lien TikTok" placeholder="https://tiktok.com/@…">
+        <span>Fiche Google</span><input type="url" name="google" aria-label="Lien de la fiche Google" placeholder="Lien de votre fiche Google">
+      </div></div>
+    <div class="f"><span class="t">Votre logo <small>(si vous en avez un)</small></span>
+      <div class="file"><label for="logo">Ajouter mon logo</label><input type="file" id="logo" name="logo" accept="image/*,.pdf,.svg"><span id="logoname">Aucun fichier choisi</span></div></div>
+  </section>
+
+  <section class="step" data-s="3">
+    <h2>Votre style</h2>
+    <p class="hint">Choisissez l'ambiance qui vous parle le plus.</p>
+    <div class="styles" id="styles"></div>
+    <p class="err" id="styleerr">Choisissez une ambiance, ou « Surprenez-moi ».</p>
+    <div class="f" style="margin-top:20px"><span class="t">Une couleur qui vous ressemble</span>
+      <div class="dots" id="dots"></div></div>
+    <div class="f"><label class="t" for="couleurs">Des couleurs à garder ou à éviter ?</label>
+      <input type="text" id="couleurs" name="couleurs" placeholder="J'aime le bleu et le blanc, pas de rose"></div>
+    <div class="f"><label class="t" for="inspi">Des sites que vous aimez <small>(liens)</small></label>
+      <textarea id="inspi" name="inspi" placeholder="Un lien par ligne, et ce qui vous plaît dans chacun"></textarea></div>
+  </section>
+
+  <section class="step" data-s="4">
+    <h2>Après la mise en ligne</h2>
+    <p class="hint">Pour vous proposer la solution la plus adaptée.</p>
+    <div class="f"><span class="t">Une fois le site en ligne, vous préférez :</span>
+      <div class="opts col">
+        <label class="opt"><input type="radio" name="gestion" value="Modifier moi-même"><span>Modifier moi-même mes textes et mes photos</span></label>
+        <label class="opt"><input type="radio" name="gestion" value="Confier les mises à jour"><span>Vous confier les mises à jour</span></label>
+        <label class="opt"><input type="radio" name="gestion" value="Je ne sais pas encore"><span>Je ne sais pas encore</span></label>
+      </div><p class="err" id="gestionerr">Choisissez une option.</p></div>
+    <div class="f"><span class="t">Souhaitez-vous aussi de l'aide pour vos réseaux sociaux ?</span>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="reseaux" value="Oui"><span>Oui, ça m'intéresse</span></label>
+        <label class="opt"><input type="radio" name="reseaux" value="Peut-être plus tard"><span>Peut-être plus tard</span></label>
+        <label class="opt"><input type="radio" name="reseaux" value="Non"><span>Non merci</span></label>
+      </div></div>
+  </section>
+
+  <section class="step" data-s="5">
+    <h2>Le cadre</h2>
+    <p class="hint">Dernière étape, et on s'occupe du reste.</p>
+    <div class="f"><span class="t">Pour quand ?</span>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="delai" value="Dès que possible"><span>Dès que possible</span></label>
+        <label class="opt"><input type="radio" name="delai" value="Dans le mois"><span>Dans le mois</span></label>
+        <label class="opt"><input type="radio" name="delai" value="Dans 2 à 3 mois"><span>Dans 2 à 3 mois</span></label>
+        <label class="opt"><input type="radio" name="delai" value="Pas pressé"><span>Je ne suis pas pressé</span></label>
+      </div></div>
+    <div class="f"><span class="t">Votre budget approximatif</span>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="budget" value="Moins de 500 €"><span>Moins de 500 €</span></label>
+        <label class="opt"><input type="radio" name="budget" value="500 à 1 000 €"><span>500 à 1 000 €</span></label>
+        <label class="opt"><input type="radio" name="budget" value="1 000 à 2 000 €"><span>1 000 à 2 000 €</span></label>
+        <label class="opt"><input type="radio" name="budget" value="Plus de 2 000 €"><span>Plus de 2 000 €</span></label>
+        <label class="opt"><input type="radio" name="budget" value="Je ne sais pas"><span>Je ne sais pas</span></label>
+      </div></div>
+    <div class="f"><label class="t" for="reve">Le site de vos rêves, en quelques mots</label>
+      <textarea id="reve" name="reve" placeholder="Lumineux, avec de grandes photos de mes créations et un bouton pour réserver un cours…"></textarea></div>
+    <div class="f"><label class="t" for="prenom">Prénom et nom</label>
+      <input type="text" id="prenom" name="prenom" autocomplete="name" data-req><p class="err">Indiquez votre nom.</p></div>
+    <div class="f"><label class="t" for="email">E-mail</label>
+      <input type="email" id="email" name="email" autocomplete="email" data-req data-email placeholder="vous@exemple.fr"><p class="err">Indiquez une adresse e-mail valide.</p></div>
+    <div class="f"><label class="t" for="tel">Téléphone <small>(facultatif)</small></label>
+      <input type="tel" id="tel" name="tel" autocomplete="tel" placeholder="06 12 34 56 78"></div>
+    <div class="hp" aria-hidden="true"><label for="hp-web">Ne pas remplir</label><input type="text" id="hp-web" name="hp_web" tabindex="-1" autocomplete="off"></div>
+    <p class="legal">Vos informations servent uniquement à étudier votre demande, préparer votre maquette et votre devis, et vous recontacter à ce sujet. Elles sont conservées 3 ans après notre dernier échange. Pour en savoir plus et exercer vos droits, consultez notre <a href="confidentialite.html">politique de confidentialité</a>.</p>
+  </section>
+
+  <section class="step" data-s="6">
+    <div class="done">
+      <svg width="64" height="64" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#f27a58"/><path d="M19 33 L28 42 L45 23" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <h2 style="margin-top:14px" id="donet">Merci, c'est bien reçu</h2>
+      <p class="hint" style="margin:0 auto;max-width:46ch">On étudie votre projet et on revient vers vous avec votre maquette et votre devis.</p>
+      <span class="hand" style="color:var(--vio2)">À très vite !</span>
+      <p class="hint" id="mailnote" hidden style="margin:14px auto 0;max-width:46ch">Votre messagerie s'ouvre avec votre demande déjà rédigée : il ne reste qu'à cliquer sur Envoyer. Si rien ne s'ouvre, écrivez-nous à contact@wellcomservices.fr.</p>
+      <dl class="recap" id="recap"></dl>
+    </div>
+  </section>
+
+  <div class="nav" id="nav">
+    <button type="button" id="prev">Retour</button>
+    <button type="button" class="go" id="next">Continuer</button>
+  </div>
+</form>
+</section>
+<a class="float-cta" id="float" href="#suite">Ma maquette gratuite <span aria-hidden="true">→</span></a>
+
+<footer><b>Well<span>com</span></b> · création de sites et communication · Antibes, Côte d'Azur<br>
+<a href="mailto:contact@wellcomservices.fr">contact@wellcomservices.fr</a> · <a href="tel:+33601761753">06 01 76 17 53</a><br>
+<nav class="flinks" aria-label="Informations légales"><a href="mentions-legales.html">Mentions légales</a><a href="confidentialite.html">Politique de confidentialité</a></nav>
+<small>© 2026 WELLCOM SAS · Aucun cookie n'est déposé sur ce site</small></footer>
+
+<script>
+{
+const ENVOI_VERS='contact@wellcomservices.fr';
+const ENDPOINT='';
+const $=id=>document.getElementById(id);
+const SITES={arkeo:{nom:'Arkéo BTP',dom:'arkeobtp.fr'}};
+const p=new URLSearchParams(location.search),h=location.hash.slice(1),ref=document.referrer;
+let from=p.get('site')||(SITES[h]?h:'');
+if(!from)for(const k in SITES)if(ref.includes(SITES[k].dom))from=k;
+if(SITES[from]){const s=SITES[from];
+ $('from-txt').textContent=`Vous venez du site ${s.nom} ? C'est nous qui l'avons créé.`;
+ $('titre').innerHTML='Et si le prochain, <em>c\'était le vôtre ?</em>';
+ $('lead').textContent='On crée des sites pour les entreprises et associations qui se lancent, et on vous montre le résultat avant même que vous vous engagiez.'}
+
+const STYLES=[
+ {v:'Épuré et minimal',bg:'#ffffff',a:'#111111',b:'#e9e9e9',c:'#111111'},
+ {v:'Chaleureux et naturel',bg:'#f3e9dc',a:'#7a5230',b:'#d9c3a5',c:'#5c7a4a'},
+ {v:'Coloré et audacieux',bg:'#ffd23f',a:'#ee4266',b:'#3bceac',c:'#540d6e'},
+ {v:'Élégant et haut de gamme',bg:'#14110f',a:'#c9a46a',b:'#2c2724',c:'#efe6d8'},
+ {v:'Moderne et tech',bg:'#0f1c3f',a:'#4f7cff',b:'#1d2d5c',c:'#7ff0d0'}];
+const mini=s=>`<svg viewBox="0 0 160 100" aria-hidden="true"><rect width="160" height="100" fill="${s.bg}"/><rect x="10" y="9" width="26" height="6" rx="2" fill="${s.a}"/><rect x="104" y="10" width="14" height="4" rx="2" fill="${s.b}"/><rect x="124" y="10" width="14" height="4" rx="2" fill="${s.b}"/><rect x="10" y="30" width="78" height="9" rx="2" fill="${s.c}"/><rect x="10" y="44" width="60" height="9" rx="2" fill="${s.c}"/><rect x="10" y="62" width="34" height="11" rx="5" fill="${s.a}"/><rect x="98" y="28" width="52" height="54" rx="6" fill="${s.b}"/><circle cx="124" cy="50" r="11" fill="${s.a}" opacity=".85"/></svg>`;
+const surprise=`<svg viewBox="0 0 160 100" aria-hidden="true"><rect width="160" height="100" fill="#4f0a80"/><path d="M58 64 L66 36 L80 56 L94 36 L102 64" fill="none" stroke="#f27a58" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="40" cy="28" r="3" fill="#fff"/><circle cx="122" cy="24" r="4" fill="#ffd23f"/><circle cx="128" cy="74" r="3" fill="#fff"/><circle cx="32" cy="72" r="4" fill="#f27a58"/></svg>`;
+$('styles').innerHTML=STYLES.map(s=>`<label class="sty"><input type="radio" name="style" value="${s.v}"><div>${mini(s)}<p>${s.v}</p></div></label>`).join('')+`<label class="sty"><input type="radio" name="style" value="Surprenez-moi"><div>${surprise}<p>Surprenez-moi</p></div></label>`;
+const COLORS=[['#f27a58','Corail'],['#4f0a80','Violet'],['#1d9e75','Vert'],['#2f6fde','Bleu'],['#e0457b','Rose'],['#d9a521','Jaune'],['#222222','Noir']];
+let col=-1;
+$('dots').innerHTML=COLORS.map((c,i)=>`<button type="button" class="dot" data-i="${i}" style="background:${c[0]}" aria-label="${c[1]}" aria-pressed="false"></button>`).join('');
+$('dots').addEventListener('click',e=>{const b=e.target.closest('.dot');if(!b)return;col=+b.dataset.i;document.querySelectorAll('.dot').forEach((d,i)=>d.setAttribute('aria-pressed',String(i===col)))});
+
+const form=$('form'),steps=[...form.querySelectorAll('.step')],bars=[...document.querySelectorAll('#prog i')];
+const prev=$('prev'),next=$('next'),stepl=$('stepl'),nav=$('nav');let cur=1,started=false;
+const smooth=()=>matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth';
+const show=n=>{cur=n;steps.forEach(s=>s.classList.toggle('on',+s.dataset.s===n));bars.forEach((b,i)=>b.classList.toggle('on',i<n));
+ const fin=n===6;stepl.textContent=fin?'Demande envoyée':`Étape ${n} sur 5`;nav.hidden=fin;
+ prev.style.visibility=n===1?'hidden':'visible';next.textContent=n===5?'Envoyer ma demande':'Continuer';
+ if(started)form.scrollIntoView({behavior:smooth(),block:'start'});started=true};
+const check=n=>{let ok=true;const s=steps[n-1];
+ s.querySelectorAll('[data-req]').forEach(el=>{const e=el.parentElement.querySelector('.err');let bad=!el.value.trim();
+  if(!bad&&el.dataset.email!==undefined)bad=!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value.trim());e.classList.toggle('on',bad);if(bad)ok=false});
+ const need=(name,id)=>{const bad=!form.querySelector(`[name="${name}"]:checked`);$(id).classList.toggle('on',bad);if(bad)ok=false};
+ if(n===3)need('style','styleerr');if(n===4)need('gestion','gestionerr');
+  if(!ok){const f=s.querySelector('.err.on');const inp=f&&f.parentElement.querySelector('input,textarea');inp&&inp.focus()}
+ return ok};
+form.addEventListener('input',e=>{const f=e.target.closest('.f');if(f)f.querySelectorAll('.err').forEach(x=>x.classList.remove('on'))});
+form.addEventListener('change',e=>{const f=e.target.closest('.f');if(f)f.querySelectorAll('.err').forEach(x=>x.classList.remove('on'));
+ if(e.target.name==='style')$('styleerr').classList.remove('on');
+ if(e.target.name==='asite')$('siteurl').hidden=e.target.value!=='Oui';
+ if(e.target.id==='logo')$('logoname').textContent=e.target.files[0]?e.target.files[0].name:'Aucun fichier choisi'});
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const collect=()=>{const d=new FormData(form);if(col>=0)d.append('couleur',COLORS[col][1]);d.append('provenance',from||'direct');d.append('destinataire',ENVOI_VERS);return d};
+const recap=d=>{const g=k=>d.getAll(k).filter(x=>typeof x==='string'&&x.trim()).join(', ');
+ const rows=[['Projet',g('nom')],['Activité',g('activite')],['Style choisi',g('style')],['Couleur',g('couleur')],['Après la mise en ligne',g('gestion')],['Délai',g('delai')],['Budget',g('budget')],['Contact',g('email')]].filter(r=>r[1]);
+ $('recap').innerHTML='<p style="font-weight:600;margin:0">Récapitulatif de votre demande</p>'+rows.map(r=>`<dt>${esc(r[0])}</dt><dd>${esc(r[1])}</dd>`).join('')};
+const toObj=async d=>{const o={};for(const [k,v] of d.entries()){if(v instanceof File){if(v.size&&v.size<4e6){o.logo_nom=v.name;o.logo_type=v.type;o.logo_base64=await new Promise(r=>{const fr=new FileReader();fr.onload=()=>r(String(fr.result).split(',')[1]);fr.readAsDataURL(v)})}}else o[k]=o[k]?o[k]+', '+v:v}return o};
+const mailFallback=d=>{const lines=[];for(const [k,v] of d.entries())if(typeof v==='string'&&v.trim()&&k!=='hp_web'&&k!=='destinataire')lines.push(k+' : '+v);
+ location.href='mailto:'+ENVOI_VERS+'?subject='+encodeURIComponent('Demande de maquette — '+(d.get('nom')||''))+'&body='+encodeURIComponent(lines.join('\n'))};
+const send=async()=>{const d=collect();if($('hp-web').value){show(6);return}
+ next.disabled=true;next.textContent='Envoi en cours…';
+ try{if(!ENDPOINT)throw 0;await fetch(ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(await toObj(d))});recap(d);show(6)}
+ catch(e){recap(d);show(6);$('donet').textContent='Plus qu\'un clic !';$('mailnote').hidden=false;mailFallback(d)}
+ finally{next.disabled=false}};
+next.addEventListener('click',()=>{if(!check(cur))return;if(cur===5){send()}else show(cur+1)});
+prev.addEventListener('click',()=>{if(cur>1)show(cur-1)});
+form.addEventListener('submit',e=>e.preventDefault());
+show(1);
+const fl=$('float'),hero=document.querySelector('.hero'),suiteEl=$('suite');
+if('IntersectionObserver' in window){const vis=new Map();const io=new IntersectionObserver(es=>{es.forEach(e=>vis.set(e.target,e.isIntersecting));fl.classList.toggle('off',!!(vis.get(hero)||vis.get(suiteEl)))},{threshold:0});io.observe(hero);io.observe(suiteEl)}
+}
+</script>
+</body>
+</html>
