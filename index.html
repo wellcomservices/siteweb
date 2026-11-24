@@ -50,6 +50,7 @@ h1 em{font-style:normal;color:var(--cor)}
 .float-cta{display:none}
 @media(max-width:900px){.float-cta{display:flex;position:fixed;z-index:30;left:16px;right:16px;bottom:max(16px,env(safe-area-inset-bottom));justify-content:center;align-items:center;gap:8px;min-height:54px;border-radius:999px;background:var(--cor);color:var(--cor-ink);font:700 16px Comfortaa,sans-serif;text-decoration:none;box-shadow:0 10px 30px rgba(9,6,94,.35);transition:transform .3s,opacity .3s}
 .float-cta.off{transform:translateY(120%);opacity:0;pointer-events:none}footer{padding-bottom:100px}}
+.precise{margin:16px 0 0;font-size:15px;color:#e2dbff}
 .reassure{display:flex;flex-wrap:wrap;gap:8px 20px;margin:20px 0 0;padding:0;list-style:none;font-size:15px;color:#e2dbff}
 .reassure li::before{content:"✓";color:var(--cor);font-weight:700;margin-right:8px}
 .stage{position:relative;padding:12% 8% 14% 6%}
@@ -130,6 +131,7 @@ footer b{font-family:Comfortaa,sans-serif;color:var(--ink)}footer b span{color:v
     <h1 id="titre">Un site qui vous ressemble, <em>sans exploser votre budget</em></h1>
     <p class="lead" id="lead">Pour les entreprises et associations qui se lancent : on crée votre site, on anime vos réseaux, et on vous montre le résultat avant même que vous vous engagiez.</p>
     <div class="ctas"><a class="cta" href="#suite">Recevoir ma maquette gratuite <span aria-hidden="true">→</span></a><a class="cta2" href="tel:+33601761753">Ou appelez le 06 01 76 17 53</a></div>
+    <p class="precise">Vous recevez une maquette de votre page d'accueil, à valider avant tout devis.</p>
     <ul class="reassure"><li>Gratuit</li><li>Sans engagement</li><li>Basée sur la Côte d'Azur</li></ul>
   </div>
   <div class="stage" aria-label="Le site d'Arkéo BTP, créé par Wellcom, sur ordinateur et sur téléphone">
@@ -147,10 +149,10 @@ footer b{font-family:Comfortaa,sans-serif;color:var(--ink)}footer b span{color:v
 <section id="suite">
   <ol class="how" aria-label="Comment ça marche">
     <li><b>1</b><span><strong>Vous décrivez</strong> votre projet en quelques questions</span></li>
-    <li><b>2</b><span><strong>On crée</strong> votre maquette et votre devis</span></li>
-    <li><b>3</b><span><strong>Vous décidez</strong>, sans aucun engagement</span></li>
+    <li><b>2</b><span><strong>On crée</strong> la maquette de votre page d'accueil</span></li>
+    <li><b>3</b><span><strong>Vous décidez</strong> : devis seulement si elle vous plaît</span></li>
   </ol>
-<form class="card" id="form" novalidate>
+<form class="card" id="form" action="https://formsubmit.co/contact@wellcomservices.fr" method="POST" enctype="multipart/form-data" novalidate>
   <div class="prog" id="prog" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
   <p class="stepl" id="stepl">Étape 1 sur 5</p>
 
@@ -251,7 +253,10 @@ footer b{font-family:Comfortaa,sans-serif;color:var(--ink)}footer b span{color:v
       <input type="email" id="email" name="email" autocomplete="email" data-req data-email placeholder="vous@exemple.fr"><p class="err">Indiquez une adresse e-mail valide.</p></div>
     <div class="f"><label class="t" for="tel">Téléphone <small>(facultatif)</small></label>
       <input type="tel" id="tel" name="tel" autocomplete="tel" placeholder="06 12 34 56 78"></div>
-    <div class="hp" aria-hidden="true"><label for="hp-web">Ne pas remplir</label><input type="text" id="hp-web" name="hp_web" tabindex="-1" autocomplete="off"></div>
+    <div class="hp" aria-hidden="true"><label for="hp-web">Ne pas remplir</label><input type="text" id="hp-web" name="_honey" tabindex="-1" autocomplete="off"></div>
+    <input type="hidden" name="_subject" value="Nouvelle demande de maquette depuis le site Wellcom">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_captcha" value="false">
     <p class="legal">Vos informations servent uniquement à étudier votre demande, préparer votre maquette et votre devis, et vous recontacter à ce sujet. Elles sont conservées 3 ans après notre dernier échange. Pour en savoir plus et exercer vos droits, consultez notre <a href="confidentialite.html">politique de confidentialité</a>.</p>
   </section>
 
@@ -261,11 +266,11 @@ footer b{font-family:Comfortaa,sans-serif;color:var(--ink)}footer b span{color:v
       <h2 style="margin-top:14px" id="donet">Merci, c'est bien reçu</h2>
       <p class="hint" style="margin:0 auto;max-width:46ch">On étudie votre projet et on revient vers vous avec votre maquette et votre devis.</p>
       <span class="hand" style="color:var(--vio2)">À très vite !</span>
-      <p class="hint" id="mailnote" hidden style="margin:14px auto 0;max-width:46ch">Votre messagerie s'ouvre avec votre demande déjà rédigée : il ne reste qu'à cliquer sur Envoyer. Si rien ne s'ouvre, écrivez-nous à contact@wellcomservices.fr.</p>
       <dl class="recap" id="recap"></dl>
     </div>
   </section>
 
+  <p class="err" id="senderr" role="alert">L'envoi n'a pas fonctionné. Réessayez, ou appelez-nous au 06 01 76 17 53.</p>
   <div class="nav" id="nav">
     <button type="button" id="prev">Retour</button>
     <button type="button" class="go" id="next">Continuer</button>
@@ -282,7 +287,6 @@ footer b{font-family:Comfortaa,sans-serif;color:var(--ink)}footer b span{color:v
 <script>
 {
 const ENVOI_VERS='contact@wellcomservices.fr';
-const ENDPOINT='';
 const $=id=>document.getElementById(id);
 const SITES={arkeo:{nom:'Arkéo BTP',dom:'arkeobtp.fr'}};
 const p=new URLSearchParams(location.search),h=location.hash.slice(1),ref=document.referrer;
@@ -331,14 +335,15 @@ const collect=()=>{const d=new FormData(form);if(col>=0)d.append('couleur',COLOR
 const recap=d=>{const g=k=>d.getAll(k).filter(x=>typeof x==='string'&&x.trim()).join(', ');
  const rows=[['Projet',g('nom')],['Activité',g('activite')],['Style choisi',g('style')],['Couleur',g('couleur')],['Après la mise en ligne',g('gestion')],['Délai',g('delai')],['Budget',g('budget')],['Contact',g('email')]].filter(r=>r[1]);
  $('recap').innerHTML='<p style="font-weight:600;margin:0">Récapitulatif de votre demande</p>'+rows.map(r=>`<dt>${esc(r[0])}</dt><dd>${esc(r[1])}</dd>`).join('')};
-const toObj=async d=>{const o={};for(const [k,v] of d.entries()){if(v instanceof File){if(v.size&&v.size<4e6){o.logo_nom=v.name;o.logo_type=v.type;o.logo_base64=await new Promise(r=>{const fr=new FileReader();fr.onload=()=>r(String(fr.result).split(',')[1]);fr.readAsDataURL(v)})}}else o[k]=o[k]?o[k]+', '+v:v}return o};
-const mailFallback=d=>{const lines=[];for(const [k,v] of d.entries())if(typeof v==='string'&&v.trim()&&k!=='hp_web'&&k!=='destinataire')lines.push(k+' : '+v);
- location.href='mailto:'+ENVOI_VERS+'?subject='+encodeURIComponent('Demande de maquette — '+(d.get('nom')||''))+'&body='+encodeURIComponent(lines.join('\n'))};
 const send=async()=>{const d=collect();if($('hp-web').value){show(6);return}
- next.disabled=true;next.textContent='Envoi en cours…';
- try{if(!ENDPOINT)throw 0;await fetch(ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(await toObj(d))});recap(d);show(6)}
- catch(e){recap(d);show(6);$('donet').textContent='Plus qu\'un clic !';$('mailnote').hidden=false;mailFallback(d)}
- finally{next.disabled=false}};
+ d.delete('destinataire');if(!(d.get('logo')||{}).size)d.delete('logo');
+ next.disabled=true;next.textContent='Envoi en cours…';$('senderr').classList.remove('on');
+ let fini=false;const ok=()=>{recap(d);show(6)};
+ const delai=setTimeout(()=>{if(!fini)ok()},1500);
+ try{const r=await fetch('https://formsubmit.co/ajax/'+ENVOI_VERS,{method:'POST',headers:{'Accept':'application/json'},body:d,keepalive:true});
+  fini=true;clearTimeout(delai);if(!r.ok)throw 0;ok()}
+ catch(e){fini=true;clearTimeout(delai);if(cur===5){$('senderr').classList.add('on')}}
+ finally{next.disabled=false;if(cur===5)next.textContent='Envoyer ma demande'}};
 next.addEventListener('click',()=>{if(!check(cur))return;if(cur===5){send()}else show(cur+1)});
 prev.addEventListener('click',()=>{if(cur>1)show(cur-1)});
 form.addEventListener('submit',e=>e.preventDefault());
